@@ -1,14 +1,329 @@
 
 <!DOCTYPE html>
-    <html>
-        <head>
-            <title>Profil Website</title>
-        </head>
-    
-        <body bgcolor="F5F0E6">
-    
-            <table border="1" width="900" align="center">
-                <!-- HEADER -->
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Website</title>
+
+    <style>
+        /* ===== PENGATURAN DASAR ===== */
+        :root {
+            --biru-gelap: #183B4E;
+            --biru-segar: #347B98;
+            --biru-muda: #DDEFF5;
+            --kuning-mentega: #FFF0B8;
+            --kuning-aksen: #F5D77A;
+            --hijau-pistachio: #E1EED5;
+            --hijau-aksen: #A9C98A;
+            --hijau-gelap: #527A43;
+            --putih: #FFFFFF;
+            --latar: #F5F0E6;
+            --teks: #304650;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 18px;
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #DDEFF5 0,
+                    transparent 35%
+                ),
+                var(--latar);
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--teks);
+            line-height: 1.8;
+        }
+
+        /* ===== TABEL UTAMA WEBSITE ===== */
+        body > table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border: none;
+            border-spacing: 0;
+            border-collapse: separate;
+            overflow: hidden;
+            background: var(--putih);
+            border-radius: 22px;
+            box-shadow: 0 16px 45px rgba(24, 59, 78, 0.14);
+            animation: muncul 0.8s ease both;
+        }
+
+        td {
+            padding: 22px;
+            border: none;
+            vertical-align: top;
+        }
+
+        /* ===== HEADER ===== */
+        body > table > tbody > tr:first-child > td {
+            background: linear-gradient(
+                135deg,
+                var(--biru-gelap),
+                var(--biru-segar)
+            ) !important;
+            color: var(--putih);
+            text-align: center;
+            padding: 36px 20px;
+        }
+
+        h1 {
+            margin: 0 0 4px;
+            font-size: clamp(30px, 5vw, 44px);
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--putih);
+        }
+
+        h1 + i {
+            display: inline-block;
+            color: var(--kuning-mentega);
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== MENU NAVIGASI ===== */
+        body > table > tbody > tr:nth-child(2) > td {
+            background: var(--biru-muda);
+            text-align: center;
+            padding: 17px 12px;
+            border-bottom: 1px solid #D2E4EA;
+        }
+
+        body > table > tbody > tr:nth-child(2) a {
+            display: inline-block;
+            margin: 5px 4px;
+            padding: 9px 17px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--biru-gelap);
+            transition:
+                color 0.25s ease,
+                background 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        body > table > tbody > tr:nth-child(2) a:hover {
+            color: var(--biru-gelap);
+            background: var(--kuning-mentega);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(24, 59, 78, 0.12);
+        }
+
+        body > table > tbody > tr:nth-child(2) a:active {
+            transform: scale(0.94);
+        }
+
+        /* ===== AREA KONTEN ===== */
+        body > table > tbody > tr:nth-child(3) > td:first-child {
+            width: 72%;
+            padding: 32px;
+        }
+
+        body > table > tbody > tr:nth-child(3) > td:last-child {
+            width: 28%;
+            background: #F5F8F1;
+            border-left: 1px solid #E3EBDD;
+            padding: 26px 22px;
+        }
+
+        /* ===== JUDUL PROFIL ===== */
+        body > table > tbody > tr:nth-child(3) > td:first-child h1 {
+            display: inline-block;
+            max-width: 100%;
+            margin: 0 0 24px;
+            padding: 0 0 12px;
+            color: var(--biru-gelap);
+            font-size: clamp(23px, 3vw, 30px);
+            line-height: 1.4;
+            text-align: left;
+            border-bottom: 4px solid var(--kuning-aksen);
+        }
+
+        p {
+            margin: 14px 0;
+        }
+
+        /* ===== INFORMASI PROFIL ===== */
+        body > table > tbody > tr:nth-child(3) > td:first-child p {
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        body > table > tbody > tr:nth-child(3) > td:first-child p b {
+            color: var(--biru-gelap);
+        }
+
+        /* Paragraf perkenalan */
+        body > table > tbody > tr:nth-child(3) > td:first-child p:last-child {
+            margin-top: 24px;
+            padding: 18px 20px;
+            background: var(--hijau-pistachio);
+            border-left: 5px solid var(--hijau-aksen);
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* ===== SIDEBAR TAUTAN EKSTERNAL ===== */
+        h3 {
+            margin: 0 0 18px;
+            color: var(--biru-gelap);
+            font-size: 18px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--hijau-aksen);
+        }
+
+        ol {
+            padding-left: 25px;
+            margin: 0;
+        }
+
+        ol li {
+            padding: 5px 0;
+            color: var(--hijau-gelap);
+        }
+
+        ol a {
+            color: var(--biru-segar);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition:
+                color 0.2s ease,
+                padding-left 0.2s ease;
+        }
+
+        ol a:hover {
+            color: var(--hijau-gelap);
+            padding-left: 5px;
+            text-decoration: underline;
+            text-decoration-color: var(--kuning-aksen);
+            text-decoration-thickness: 2px;
+        }
+
+        /* ===== FOOTER ===== */
+        body > table > tbody > tr:last-child > td {
+            background: var(--biru-gelap) !important;
+            color: var(--putih);
+            padding: 20px 26px;
+            border-top: 5px solid var(--hijau-aksen);
+        }
+
+        body > table > tbody > tr:last-child p:first-child {
+            margin: 4px 0 12px;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        body > table > tbody > tr:last-child p:last-child {
+            margin: 0;
+            text-align: right;
+        }
+
+        body > table > tbody > tr:last-child p:last-child font {
+            color: var(--kuning-mentega) !important;
+            font-size: 12px;
+        }
+
+        /* ===== FOKUS KEYBOARD ===== */
+        a:focus-visible {
+            outline: 3px solid var(--kuning-aksen);
+            outline-offset: 4px;
+        }
+
+        /* ===== ANIMASI MASUK ===== */
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE UNTUK HP ===== */
+        @media (max-width: 650px) {
+            body {
+                padding: 16px 10px;
+            }
+
+            body > table {
+                border-radius: 16px;
+            }
+
+            td {
+                padding: 18px;
+            }
+
+            body > table > tbody > tr:nth-child(3) > td:first-child,
+            body > table > tbody > tr:nth-child(3) > td:last-child {
+                display: block;
+                width: 100%;
+            }
+
+            body > table > tbody > tr:nth-child(3) > td:first-child {
+                padding: 24px 20px;
+            }
+
+            body > table > tbody > tr:nth-child(3) > td:nth-child(2) {
+                border-left: none;
+                border-top: 1px solid #E3EBDD;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            body > table > tbody > tr:nth-child(3) > td:first-child h1 {
+                font-size: 24px;
+            }
+
+            body > table > tbody > tr:nth-child(2) a {
+                margin: 4px 2px;
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            body > table > tbody > tr:first-child > td {
+                padding: 28px 15px;
+            }
+        }
+
+        /* ===== AKSESIBILITAS ANIMASI ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body bgcolor="F5F0E6">
+
+<table border="1" width="900" align="center">
+    <!-- HEADER -->
     <tr>
         <td colspan="2" align="center" bgcolor="183B4E">
             <font color="white">
@@ -17,8 +332,9 @@
             </font>
         </td>
     </tr>
-                <!-- MENU 4 HYPERLINK -->
-<tr>
+
+    <!-- MENU 4 HYPERLINK -->
+    <tr>
         <td colspan="2" align="center">
             <a href="index.html">Beranda</a> |
             <a href="Profil.html">Profil</a> |
@@ -26,18 +342,20 @@
             <a href="kontak.html">Kontak</a>
         </td>
     </tr>
-<tr>
-            <!-- ISI -->
-    <td>
-        <h1>PROFIL PEMBUAT WEBSITE</h1>
-        <p align="right">
-        <p><b>NAMA:</b>FIDEL JAMIL AL-KHAFARI</p>
-        <P><B>KELAS</B>XI DKV 2</P>
-        <P><B>JURUSAN</B>DESAIN KOMUNIKASI VISUAL</P>
-        <p>Perkenalkan Website Buatan Saya di sini tempat untuk saya berkreasi</p>
-    </td>
- <!-- TAUTAN LINK -->
- <td valign="top">
+
+    <!-- ISI -->
+    <tr>
+        <td>
+            <h1>PROFIL PEMBUAT WEBSITE</h1>
+            <p align="right">
+            <p><b>NAMA:</b>FIDEL JAMIL AL-KHAFARI</p>
+            <P><B>KELAS</B>XI DKV 2</P>
+            <P><B>JURUSAN</B>DESAIN KOMUNIKASI VISUAL</P>
+            <p>Perkenalkan Website Buatan Saya di sini tempat untuk saya berkreasi</p>
+        </td>
+
+        <!-- TAUTAN LINK -->
+        <td valign="top">
             <h3>Tautan Eksternal</h3>
             <ol>
                 <li><a href="https://www.mawan.net">Website Mawan</a></li>
@@ -45,22 +363,23 @@
                 <li><a href="https://wikipedia.org">Wikipedia</a></li>
                 <li><a href="https://www.w3schools.com">W3Schools</a></li>
             </ol>
-
         </td>
     </tr>
-                <!-- FOOOTER -->
-  <tr bgcolor="#183B4E">
-    <td colspan="2" align="center">
-        <font color="white">
-            <p>Website Pemain Futsal Indonesia</p>
-        </font>
-<p align="right">
+
+    <!-- FOOTER -->
+    <tr bgcolor="#183B4E">
+        <td colspan="2" align="center">
+            <font color="white">
+                <p>Website Pemain Futsal Indonesia</p>
+            </font>
+
+            <p align="right">
                 <font color="4CAF50" size="2">
                     &copy; 2026 Fidel Jamil A.K
                 </font>
             </p>
-    </td>
-</tr>
+        </td>
+    </tr>
 </table>
 
 </body>
